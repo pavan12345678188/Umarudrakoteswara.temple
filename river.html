@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel ="stylesheet" href="style.css"/> 
+<title>River · Sri Uma Rudra Koteswara Swamy Temple</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Tiro+Telugu&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c9922a;
+    --gold-light: #e8b84b;
+    --gold-pale: #f5e3b0;
+    --deep-red: #7b1a1a;
+    --crimson: #a01c1c;
+    --dark: #1a0a00;
+    --dark2: #2b1200;
+    --cream: #fdf5e6;
+    --saffron: #ff7f00;
+    --text-main: #2b1200;
+    --text-light: #7a4e2d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Lora', serif;
+    overflow-x: hidden;
+  }
+
+  /* OM Symbol Cursor */
+  body { cursor: default; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,146,42,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(123,26,26,0.4) 0%, transparent 50%),
+      linear-gradient(180deg, #0d0500 0%, #1a0800 40%, #2b1000 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,146,42,0.03) 40px, rgba(201,146,42,0.03) 41px),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,146,42,0.03) 40px, rgba(201,146,42,0.03) 41px);
+  }
+
+  .mandala {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.08);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 60s linear infinite;
+  }
+  .mandala::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.06);
+  }
+  .mandala::after {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.04);
+  }
+  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .om-symbol {
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.9;
+    animation: pulse-glow 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(201,146,42,0.8), 0 0 60px rgba(201,146,42,0.4);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.9; text-shadow: 0 0 30px rgba(201,146,42,0.8), 0 0 60px rgba(201,146,42,0.4); }
+    50% { opacity: 1; text-shadow: 0 0 50px rgba(201,146,42,1), 0 0 100px rgba(201,146,42,0.6), 0 0 150px rgba(255,127,0,0.3); }
+  }
+
+  .hero-telugu {
+    font-family: 'Tiro Telugu', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    color: var(--gold-light);
+    line-height: 1.2;
+    text-shadow: 0 2px 20px rgba(201,146,42,0.5);
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fadeUp 1s 0.7s forwards;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fadeUp 1s 0.9s forwards;
+  }
+  .hero-divider span { color: var(--gold); font-size: 1.2rem; }
+  .hero-divider::before, .hero-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    max-width: 120px;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    font-style: italic;
+    color: var(--gold-pale);
+    font-size: 1rem;
+    line-height: 1.7;
+    position: relative; z-index: 2;
+    opacity: 0;
+    animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    opacity: 0;
+    animation: fadeUp 1s 1.5s forwards;
+    z-index: 2;
+  }
+  .scroll-arrow {
+    width: 20px; height: 20px;
+    border-right: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    transform: rotate(45deg);
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+  @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(6px)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15,5,0,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201,146,42,0.3);
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-pale);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 2px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover {
+    color: var(--gold);
+    background: rgba(201,146,42,0.1);
+  }
+
+  .lang-toggle {
+    display: flex;
+    gap: 0.3rem;
+  }
+  .lang-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+
+  .dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(15,5,0,0.98);
+  border: 1px solid rgba(201,146,42,0.3);
+  min-width: 180px;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Mobile support */
+.dropdown-menu.open {
+  display: flex;
+}
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .section-title-te {
+    font-family: 'Tiro Telugu', serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .ornament::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+  /* ─── HISTORY ─── */
+  #history { background: linear-gradient(180deg, var(--dark) 0%, #200c00 100%); }
+
+  .history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .history-card {
+    background: linear-gradient(135deg, rgba(201,146,42,0.08), rgba(123,26,26,0.08));
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .history-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,146,42,0.5);
+  }
+  .history-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), var(--crimson));
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .card-title-te {
+    font-family: 'Tiro Telugu', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--gold-pale);
+  }
+
+  .pancha-linga {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, rgba(123,26,26,0.15), rgba(201,146,42,0.08));
+    border: 1px solid rgba(201,146,42,0.25);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .pancha-title {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+
+  .pancha-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    list-style: none;
+  }
+  .pancha-list li {
+    background: rgba(201,146,42,0.1);
+    border: 1px solid rgba(201,146,42,0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    color: var(--gold-pale);
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  .pancha-list li.active-temple {
+    background: rgba(201,146,42,0.25);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ─── GALLERY ─── */
+  .gallery-section {
+    background: linear-gradient(180deg, #200c00 0%, #0d0500 100%);
+    padding: 5rem 2rem;
+  }
+
+  .gallery-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, rgba(201,146,42,0.1), rgba(123,26,26,0.15));
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 2.5rem;
+    color: var(--gold);
+    opacity: 0.7;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-item:hover {
+    opacity: 1;
+    border-color: var(--gold);
+    transform: scale(1.02);
+  }
+  .gallery-item:hover img { transform: scale(1.07); }
+  .gallery-item span.label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-pale);
+  }
+  .gallery-item.real-photo { opacity: 1; }
+  .photo-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(0deg, rgba(10,3,0,0.88) 0%, transparent 100%);
+    padding: 1rem 0.7rem 0.6rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+  .gallery-item:hover .photo-label { transform: translateY(0); }
+  .gallery-notice {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+
+  /* ─── TIMINGS ─── */
+  #timings { background: linear-gradient(180deg, #0d0500 0%, #200c00 100%); }
+
+  .timings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .timing-block {
+    background: linear-gradient(135deg, rgba(201,146,42,0.06), rgba(123,26,26,0.1));
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .timing-header {
+    background: linear-gradient(90deg, rgba(123,26,26,0.5), rgba(201,146,42,0.2));
+    padding: 1rem 1.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .timing-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .timing-table tr {
+    border-bottom: 1px solid rgba(201,146,42,0.08);
+    transition: background 0.2s;
+  }
+  .timing-table tr:hover { background: rgba(201,146,42,0.05); }
+  .timing-table td {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--gold-pale);
+  }
+  .timing-table td:last-child {
+    text-align: right;
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.82rem;
+  }
+
+  .special-days {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(123,26,26,0.15), rgba(201,146,42,0.08));
+    border: 1px solid rgba(201,146,42,0.25);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+  .special-title {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+  .special-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+  .tag {
+    background: rgba(201,146,42,0.12);
+    border: 1px solid rgba(201,146,42,0.35);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-section {
+    background: linear-gradient(180deg, #200c00, #0d0500);
+    padding: 5rem 2rem;
+  }
+
+  .contact-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .contact-card {
+    background: linear-gradient(135deg, rgba(201,146,42,0.06), rgba(123,26,26,0.1));
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .contact-title {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    align-items: flex-start;
+  }
+  .contact-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .contact-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+  .contact-value {
+    font-size: 0.9rem;
+    color: var(--gold-pale);
+    line-height: 1.5;
+  }
+
+  .map-placeholder {
+    background: linear-gradient(135deg, rgba(201,146,42,0.06), rgba(123,26,26,0.1));
+    border: 1px solid rgba(201,146,42,0.2);
+    border-radius: 4px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.6;
+    text-align: center;
+  }
+  .map-placeholder p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-pale);
+  }
+
+  .map-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.3s;
+    font-weight: 700;
+  }
+  .map-btn:hover { background: var(--gold-light); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #070300;
+    border-top: 1px solid rgba(201,146,42,0.2);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .footer-om {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .footer-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(201,146,42,0.5);
+    text-transform: uppercase;
+  }
+  .footer-telugu {
+    font-family: 'Tiro Telugu', serif;
+    font-size: 0.9rem;
+    color: rgba(201,146,42,0.4);
+    margin-top: 0.3rem;
+  }
+
+  /* ─── LANG SWITCH ─── */
+  [data-lang="te"] { display: none; }
+  body.lang-te [data-lang="en"] { display: none; }
+  body.lang-te [data-lang="te"] { display: block; }
+  body.lang-te [data-lang-inline="en"] { display: none; }
+  body.lang-te [data-lang-inline="te"] { display: inline; }
+  [data-lang-inline="te"] { display: none; }
+
+  /* ─── RESPONSIVE ─── */
+  
+
+  
+
+  
+
+  /* ─── NAV LEFT GROUP ─── */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  /* Hide hamburger on desktop */
+  .hamburger { display: none; }
+
+  /* ─── HAMBURGER ─── */
+  .hamburger {
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: transparent;
+    border: 1px solid rgba(201,146,42,0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Active nav link */
+  li.active-link > a { color: var(--gold-light) !important; border-bottom: 2px solid var(--gold); }
+
+  @media (max-width: 768px) {
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex !important;
+  }
+
+  /* Hide menu by default */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(8,3,0,0.98);
+    backdrop-filter: blur(16px);
+    flex-direction: column;
+    z-index: 9999;
+    padding-bottom: 1rem;
+  }
+
+  /* Show when clicked */
+  .nav-links.open {
+    display: flex;
+  }
+
+  /* Each item full width */
+  .nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(201,146,42,0.1);
+  }
+
+  /* 🔥 IMPORTANT FIX */
+  .nav-links a {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    width: 100%;
+  }
+
+
+    /* Single column grids */
+    .history-grid { grid-template-columns: 1fr !important; }
+    .timings-grid { grid-template-columns: 1fr !important; }
+    .contact-inner { grid-template-columns: 1fr !important; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .festival-top-grid { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
+    .river-main-grid { grid-template-columns: 1fr !important; }
+    .river-cards-grid { grid-template-columns: 1fr 1fr !important; }
+    .festival-rituals { grid-template-columns: 1fr 1fr !important; }
+    .praharas-grid { grid-template-columns: 1fr 1fr !important; }
+    .shivaratri-grid { grid-template-columns: 1fr !important; }
+    .pancha-list { flex-direction: column; }
+    .pancha-list li { text-align: center; }
+    .map-placeholder { min-height: 180px; }
+    .timing-table td { padding: 0.6rem 0.8rem; font-size: 0.8rem; }
+    .section-title { font-size: 1.2rem !important; }
+    .nav-logo { font-size: 0.72rem !important; white-space: nowrap; }
+/* Nav mobile layout fix */
+    .nav-inner { padding: 0 0.6rem !important; gap: 0.4rem; }
+    .nav-left { gap: 0.4rem !important; flex: 1; }
+    .nav-logo { font-size: 0.65rem !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 130px; }
+    .lang-toggle { gap: 0.2rem !important; }
+    .lang-btn { padding: 0.25rem 0.45rem !important; font-size: 0.68rem !important; }
+    .nav-inner { padding: 0 0.6rem !important; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr !important; }
+    .festival-rituals { grid-template-columns: 1fr !important; }
+    .history-grid { grid-template-columns: 1fr !important; }
+    .river-cards-grid { grid-template-columns: 1fr !important; }
+    .praharas-grid { grid-template-columns: 1fr !important; }
+  }
+
+
+  
+
+
+
+  
+  .back-home-btn:hover {
+    background: rgba(201,146,42,0.15);
+    border-color: var(--gold);
+    color: var(--gold-light);
+    box-shadow: 0 4px 18px rgba(201,146,42,0.25);
+  }
+  .back-home-btn .btn-icon { font-size: 0.85rem; }
+  @media (max-width: 768px) {
+    .back-home-btn {
+      top: 68px;
+      right: 1rem;
+      font-size: 0.68rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
+  /* ─── BACK BUTTON ─── */
+  .nav-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    padding: 0.45rem 1.2rem;
+    border-radius: 2px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  .nav-back-btn:hover {
+    background: linear-gradient(135deg, #f5d06a, var(--gold-light));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(201,146,42,0.4);
+  }
+  /* Hide text on mobile, show only arrow */
+  @media (max-width: 768px) {
+    .nav-back-btn {
+      padding: 0.38rem 0.65rem;
+      font-size: 0.85rem;
+      letter-spacing: 0;
+      min-width: 34px;
+      justify-content: center;
+    }
+    .nav-back-btn span[data-lang-inline] { display: none !important; }
+  }
+
+  /* Desktop: right side (default via space-between) */
+  /* Mobile: left side inside nav-left group */
+
+
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a class="nav-logo" href="index.html"><br>🕉️Umarudra<br>koteswara Swamy</a>
+      <a href="index.html" class="nav-back-btn">
+        ← <span data-lang-inline="en">Back</span><span data-lang-inline="te" style="display:none;font-family:'Tiro Telugu',serif;">వెనక్కి</span>
+      </a>
+    </div>
+ <ul class="nav-links" id="navLinks">
+
+<li>
+  <a href="index.html">
+    <span data-lang-inline="en">Home</span>
+    <span data-lang-inline="te">హోమ్</span>
+  </a>
+</li>
+
+<li>
+  <a href="history.html">
+    <span data-lang-inline="en">History</span>
+    <span data-lang-inline="te">చరిత్ర</span>
+  </a>
+</li>
+
+<li>
+  <a href="gallery.html">
+    <span data-lang-inline="en">Gallery</span>
+    <span data-lang-inline="te">గ్యాలరీ</span>
+  </a>
+</li>
+
+<li>
+  <a href ="river.html">
+    <span data-lang-inline="en">River</span>
+    <span data-lang-inline="te">నది</span>
+  </a>
+</li>
+
+<li>
+  <a href="timings.html">
+    <span data-lang-inline="en">Timings</span>
+    <span data-lang-inline="te">సమయాలు</span>
+  </a>
+</li>
+
+<li>
+  <a href="festivals.html">
+    <span data-lang-inline="en">Festivals</span>
+    <span data-lang-inline="te">పండుగలు</span>
+  </a>
+</li>
+
+<li class="dropdown">
+  <a href="#">
+    <span data-lang-inline="en">Services ▼</span>
+    <span data-lang-inline="te">సేవలు ▼</span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a href="special_poojas.html">
+        <span data-lang-inline="en">Poojas</span>
+        <span data-lang-inline="te">పూజలు</span>
+      </a>
+    </li>
+    <li>
+      <a href="donation.html">
+        <span data-lang-inline="en">Donation</span>
+        <span data-lang-inline="te">దానం</span>
+      </a>
+    </li>
+    <li>
+      <a href="calendar.html">
+        <span data-lang-inline="en">Calendar</span>
+        <span data-lang-inline="te">క్యాలెండర్</span>
+      </a>
+    </li>
+    <li>
+      <a href="updates.html">
+        <span data-lang-inline="en">Daily Updates</span>
+        <span data-lang-inline="te">దైనందిన సమాచారం</span>
+      </a>
+    </li>
+  </ul>
+</li>
+
+<li>
+  <a href="contact.html">
+    <span data-lang-inline="en">Contact</span>
+    <span data-lang-inline="te">సంప్రదించండి</span>
+  </a>
+</li>
+
+</ul>
+  
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-te" onclick="setLang('te')">తె</button>
+    </div>
+  </div>
+</nav>
+<div style="background: linear-gradient(180deg, #0d0500 0%, #1a0800 50%, #0d0500 100%); padding: 5rem 2rem;" id="river">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-header">
+      <p class="section-label" data-lang-inline="en">Sacred Waters</p>
+      <p class="section-label" data-lang-inline="te" style="display:none;">పవిత్ర జలాలు</p>
+      <h2 class="section-title" data-lang-inline="en">The Holy Nagavali River</h2>
+      <h2 class="section-title-te" data-lang-inline="te" style="display:none;">పవిత్ర నాగావళి నది</h2>
+      <div class="ornament">✦</div>
+    </div>
+
+    <!-- River image + intro -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center; margin-bottom:3rem;" class="river-main-grid">
+
+      <div style="position:relative; border-radius:6px; overflow:hidden; border:2px solid rgba(201,146,42,0.3); box-shadow:0 0 30px rgba(201,146,42,0.15);">
+        <img src="data:image/jpeg;base64,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" alt="Nagavali River near Koteswara Temple Srikakulam"
+          style="width:100%; height:320px; object-fit:cover; display:block;"/>
+        <div style="position:absolute; bottom:0; left:0; right:0; padding:1rem 1.2rem;
+          background:linear-gradient(0deg,rgba(10,3,0,0.9) 0%,transparent 100%);">
+          <p style="font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:0.15em; color:var(--gold);" data-lang-inline="en">NAGAVALI RIVER · SRIKAKULAM</p>
+          <p style="font-family:'Tiro Telugu',serif; font-size:0.8rem; color:var(--gold); display:none;" data-lang-inline="te">నాగావళి నది · శ్రీకాకుళం</p>
+        </div>
+      </div>
+
+      <div>
+        <p style="font-size:0.95rem; line-height:2; color:var(--gold-pale); margin-bottom:1.2rem;" data-lang-inline="en">
+          The <strong style="color:var(--gold);">Nagavali River</strong> — also known as <em>Vamsadhara's sister stream</em> — flows gracefully beside Sri Uma Rudra Koteswara Swamy Temple, blessing the land of Srikakulam for thousands of years. This sacred river originates from the Eastern Ghats and travels through the lush forests of Odisha and Andhra Pradesh before meeting the Bay of Bengal.
+        </p>
+        <p style="font-size:0.95rem; line-height:2; color:var(--gold-pale); margin-bottom:1.2rem;" data-lang-inline="en">
+          In ancient scriptures, the Nagavali is described as a river of divine purity. It is on the banks of this very river that <strong style="color:var(--gold);">Lord Balarama</strong> is believed to have established the five sacred Pancha Linga Kshetras — making every drop of its water a symbol of Shiva's eternal grace.
+        </p>
+        <p style="font-family:'Tiro Telugu',serif; font-size:0.93rem; line-height:2; color:var(--gold-pale); display:none;" data-lang-inline="te">
+          <strong style="color:var(--gold);">నాగావళి నది</strong> శ్రీ ఉమారుద్ర కోటేశ్వర స్వామి ఆలయం పక్కన పవిత్రంగా ప్రవహిస్తుంది. పూర్వ కాలం నుండి ఈ నది శ్రీకాకుళం భూమిని అనుగ్రహిస్తోంది. తూర్పు కనుమల నుండి పుట్టి ఒడిశా మరియు ఆంధ్రప్రదేశ్ గుండా ప్రవహించి బంగాళాఖాతంలో కలుస్తుంది. ఈ పవిత్ర నది తీరంలోనే శ్రీ బలరాముడు పంచలింగ క్షేత్రాలను స్థాపించాడని పురాణాలు చెప్తున్నాయి.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:0.7rem; margin-top:0.5rem;">
+          <span style="background:rgba(201,146,42,0.1); border:1px solid rgba(201,146,42,0.3); padding:0.4rem 1rem; border-radius:2px; font-family:'Cinzel',serif; font-size:0.72rem; color:var(--gold-light); letter-spacing:0.08em;" data-lang-inline="en">🌊 Origin: Eastern Ghats</span>
+          <span style="background:rgba(201,146,42,0.1); border:1px solid rgba(201,146,42,0.3); padding:0.4rem 1rem; border-radius:2px; font-family:'Cinzel',serif; font-size:0.72rem; color:var(--gold-light); letter-spacing:0.08em;" data-lang-inline="en">📏 Length: ~256 km</span>
+          <span style="background:rgba(201,146,42,0.1); border:1px solid rgba(201,146,42,0.3); padding:0.4rem 1rem; border-radius:2px; font-family:'Cinzel',serif; font-size:0.72rem; color:var(--gold-light); letter-spacing:0.08em;" data-lang-inline="en">🌅 Flows into: Bay of Bengal</span>
+          <span style="background:rgba(201,146,42,0.1); border:1px solid rgba(201,146,42,0.3); padding:0.4rem 1rem; border-radius:2px; font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-light); display:none;" data-lang-inline="te">🌊 మూలం: తూర్పు కనుమలు</span>
+          <span style="background:rgba(201,146,42,0.1); border:1px solid rgba(201,146,42,0.3); padding:0.4rem 1rem; border-radius:2px; font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-light); display:none;" data-lang-inline="te">📏 పొడవు: ~256 కి.మీ.</span>
+          <span style="background:rgba(201,146,42,0.1); border:1px solid rgba(201,146,42,0.3); padding:0.4rem 1rem; border-radius:2px; font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-light); display:none;" data-lang-inline="te">🌅 సంగమం: బంగాళాఖాతం</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 significance cards -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2rem;" class="river-cards-grid">
+
+      <div style="background:linear-gradient(135deg,rgba(201,146,42,0.07),rgba(123,26,26,0.1)); border:1px solid rgba(201,146,42,0.2); border-radius:4px; padding:1.3rem; text-align:center; position:relative; overflow:hidden; transition:transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(201,146,42,0.5)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(201,146,42,0.2)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
+        <div style="font-size:1.8rem; margin-bottom:0.7rem;">🐍</div>
+        <div style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;" data-lang-inline="en">Naga Sacred River</div>
+        <div style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold); margin-bottom:0.5rem; display:none;" data-lang-inline="te">నాగ పవిత్ర నది</div>
+        <p style="font-size:0.78rem; color:var(--gold-pale); line-height:1.7;" data-lang-inline="en">Named after the Naga serpent deity, this river is considered under the divine protection of Lord Shiva himself.</p>
+        <p style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-pale); line-height:1.7; display:none;" data-lang-inline="te">నాగ దేవత పేరిట నామకరణం చేయబడిన ఈ నది శివుని దివ్య రక్షణలో ఉందని విశ్వసిస్తారు.</p>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(201,146,42,0.07),rgba(123,26,26,0.1)); border:1px solid rgba(201,146,42,0.2); border-radius:4px; padding:1.3rem; text-align:center; position:relative; overflow:hidden; transition:transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(201,146,42,0.5)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(201,146,42,0.2)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
+        <div style="font-size:1.8rem; margin-bottom:0.7rem;">🛁</div>
+        <div style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;" data-lang-inline="en">Purifying Bath</div>
+        <div style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold); margin-bottom:0.5rem; display:none;" data-lang-inline="te">పాపహర స్నానం</div>
+        <p style="font-size:0.78rem; color:var(--gold-pale); line-height:1.7;" data-lang-inline="en">A holy dip in the Nagavali, especially during Karthika Masam and Shivaratri, is believed to wash away all sins.</p>
+        <p style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-pale); line-height:1.7; display:none;" data-lang-inline="te">కార్తీక మాసంలో మరియు శివరాత్రి నాడు నాగావళిలో స్నానం చేయడం సమస్త పాపాలను తొలగిస్తుందని భక్తుల విశ్వాసం.</p>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(201,146,42,0.07),rgba(123,26,26,0.1)); border:1px solid rgba(201,146,42,0.2); border-radius:4px; padding:1.3rem; text-align:center; position:relative; overflow:hidden; transition:transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(201,146,42,0.5)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(201,146,42,0.2)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
+        <div style="font-size:1.8rem; margin-bottom:0.7rem;">🪔</div>
+        <div style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;" data-lang-inline="en">Deepa Visarjan</div>
+        <div style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold); margin-bottom:0.5rem; display:none;" data-lang-inline="te">దీప విసర్జన</div>
+        <p style="font-size:0.78rem; color:var(--gold-pale); line-height:1.7;" data-lang-inline="en">On Karthika Pournami, thousands of oil lamps are floated on the Nagavali River — a breathtaking spectacle of light and devotion.</p>
+        <p style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-pale); line-height:1.7; display:none;" data-lang-inline="te">కార్తీక పౌర్ణమి నాడు నాగావళి నదిలో వేలాది దీపాలు వదలడం అద్భుతమైన దృశ్యాన్ని సృష్టిస్తుంది.</p>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(201,146,42,0.07),rgba(123,26,26,0.1)); border:1px solid rgba(201,146,42,0.2); border-radius:4px; padding:1.3rem; text-align:center; position:relative; overflow:hidden; transition:transform 0.3s, border-color 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(201,146,42,0.5)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(201,146,42,0.2)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
+        <div style="font-size:1.8rem; margin-bottom:0.7rem;">🕉️</div>
+        <div style="font-family:'Cinzel',serif; font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.5rem;" data-lang-inline="en">Pancha Linga Link</div>
+        <div style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold); margin-bottom:0.5rem; display:none;" data-lang-inline="te">పంచలింగ సంబంధం</div>
+        <p style="font-size:0.78rem; color:var(--gold-pale); line-height:1.7;" data-lang-inline="en">All five Pancha Linga Kshetras established by Lord Balarama are situated along the sacred banks of this divine river.</p>
+        <p style="font-family:'Tiro Telugu',serif; font-size:0.78rem; color:var(--gold-pale); line-height:1.7; display:none;" data-lang-inline="te">బలరాముడు స్థాపించిన అన్ని పంచలింగ క్షేత్రాలు ఈ పవిత్ర నది తీరంలోనే వెలసి ఉన్నాయి.</p>
+      </div>
+    </div>
+
+    <!-- Closing quote -->
+    <div style="text-align:center; padding:1.8rem; background:linear-gradient(135deg,rgba(201,146,42,0.07),rgba(123,26,26,0.1)); border:1px solid rgba(201,146,42,0.2); border-left:4px solid var(--gold); border-radius:4px;">
+      <p style="font-family:'Cinzel Decorative',serif; font-size:1rem; color:var(--gold-light); margin-bottom:0.4rem;" data-lang-inline="en">"Where the River Flows, Lord Shiva Blesses"</p>
+      <p style="font-family:'Tiro Telugu',serif; font-size:1rem; color:var(--gold-light); margin-bottom:0.4rem; display:none;" data-lang-inline="te">"నది ప్రవహించే చోట శివుని అనుగ్రహం నెలకొంటుంది"</p>
+      <p style="font-size:0.82rem; color:rgba(201,146,42,0.6); font-family:'Cinzel',serif; letter-spacing:0.1em;" data-lang-inline="en">The Nagavali River is the lifeline of Srikakulam — sacred, eternal, and ever-flowing with divine grace.</p>
+      <p style="font-family:'Tiro Telugu',serif; font-size:0.82rem; color:rgba(201,146,42,0.6); display:none;" data-lang-inline="te">నాగావళి నది శ్రీకాకుళానికి జీవనరేఖ — పవిత్రమైన, శాశ్వతమైన మరియు దివ్య అనుగ్రహంతో నిరంతరం ప్రవహించే నది.</p>
+    </div>
+
+  </div>
+</div>
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer>
+  <div class="footer-om">ॐ</div>
+  <p class="footer-text" data-lang-inline="en">Sri Uma Rudra Koteswara Swamy Temple · Gudiveedhi, Srikakulam</p>
+  <p class="footer-text" data-lang-inline="te" style="display:none;">శ్రీ ఉమారుద్ర కోటేశ్వర స్వామి ఆలయం · గుడివీధి, శ్రీకాకుళం</p>
+  <p class="footer-telugu">ॐ నమః శివాయ ॐ</p>
+</footer>
+<script>
+
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  const label = el.querySelector('.label-en');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox-label').textContent = label ? label.textContent : '';
+  const lb = document.getElementById('lightbox');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+
+function toggleMenu() {
+  var nav = document.getElementById('navLinks');
+  var btn = document.getElementById('hamburger');
+  if (!nav || !btn) return;
+  nav.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+function setLang(lang) {
+  localStorage.setItem('templeLang', lang);
+  document.body.classList.toggle('lang-te', lang === 'te');
+
+  var btnEn = document.getElementById('btn-en');
+  var btnTe = document.getElementById('btn-te');
+  if (btnEn) btnEn.classList.toggle('active', lang === 'en');
+  if (btnTe) btnTe.classList.toggle('active', lang === 'te');
+
+  document.querySelectorAll('[data-lang-inline="en"]').forEach(function(el) {
+    el.style.display = lang === 'te' ? 'none' : '';
+  });
+  document.querySelectorAll('[data-lang-inline="te"]').forEach(function(el) {
+    el.style.display = lang === 'te' ? '' : 'none';
+  });
+  document.querySelectorAll('.label-en').forEach(function(el) {
+    el.style.display = lang === 'te' ? 'none' : '';
+  });
+  document.querySelectorAll('.label-te').forEach(function(el) {
+    el.style.display = lang === 'te' ? '' : 'none';
+  });
+}
+
+// Restore saved language immediately on every page load
+(function() {
+  var saved = localStorage.getItem('templeLang') || 'en';
+  setLang(saved);
+})();
+
+</script>
+
+
+</body>
+<script src="script.js"></script>
+</html>
